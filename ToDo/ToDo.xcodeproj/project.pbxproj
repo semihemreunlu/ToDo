@@ -34,6 +34,14 @@
 		0C875DA7252A376E00550F40 /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C875DA6252A376E00550F40 /* Collection+.swift */; };
 		0C875DAD252A380100550F40 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C875DAC252A380100550F40 /* UITableView+.swift */; };
 		0C875DB2252A383D00550F40 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C875DB1252A383D00550F40 /* Reusable.swift */; };
+		0C875DB8252A450E00550F40 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C875DB6252A450E00550F40 /* TaskDetailViewController.swift */; };
+		0C875DB9252A450E00550F40 /* TaskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C875DB7252A450E00550F40 /* TaskDetailViewController.xib */; };
+		0C875DBE252A451F00550F40 /* TaskDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C875DBD252A451F00550F40 /* TaskDetailBuilder.swift */; };
+		0C875DC3252A452A00550F40 /* TaskDetailContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C875DC2252A452A00550F40 /* TaskDetailContracts.swift */; };
+		0C875DC8252A453500550F40 /* TaskDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C875DC7252A453400550F40 /* TaskDetailPresenter.swift */; };
+		0C875DCD252A453F00550F40 /* TaskDetailPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C875DCC252A453F00550F40 /* TaskDetailPresentation.swift */; };
+		0C875DD2252A454A00550F40 /* TaskDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C875DD1252A454A00550F40 /* TaskDetailInteractor.swift */; };
+		0C875DD7252A455300550F40 /* TaskDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C875DD6252A455300550F40 /* TaskDetailRouter.swift */; };
 		5C49CF240BF5F98524195DDB /* Pods_ToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4432EC13EC2FBBA0ADF54102 /* Pods_ToDo.framework */; };
 		C72CFD1E2744DFFA72B9A69F /* Pods_ToDoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CFDFA71C7BC314778CE7EC /* Pods_ToDoTests.framework */; };
 		DF2BCFF242372A3246865BB8 /* Pods_ToDo_ToDoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06086997D736B462F4563E5C /* Pods_ToDo_ToDoUITests.framework */; };
@@ -91,6 +99,14 @@
 		0C875DA6252A376E00550F40 /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
 		0C875DAC252A380100550F40 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		0C875DB1252A383D00550F40 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		0C875DB6252A450E00550F40 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
+		0C875DB7252A450E00550F40 /* TaskDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskDetailViewController.xib; sourceTree = "<group>"; };
+		0C875DBD252A451F00550F40 /* TaskDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailBuilder.swift; sourceTree = "<group>"; };
+		0C875DC2252A452A00550F40 /* TaskDetailContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailContracts.swift; sourceTree = "<group>"; };
+		0C875DC7252A453400550F40 /* TaskDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailPresenter.swift; sourceTree = "<group>"; };
+		0C875DCC252A453F00550F40 /* TaskDetailPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailPresentation.swift; sourceTree = "<group>"; };
+		0C875DD1252A454A00550F40 /* TaskDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailInteractor.swift; sourceTree = "<group>"; };
+		0C875DD6252A455300550F40 /* TaskDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailRouter.swift; sourceTree = "<group>"; };
 		13BF5C6FABD6A5B53019931B /* Pods-ToDo-ToDoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDo-ToDoUITests.debug.xcconfig"; path = "Target Support Files/Pods-ToDo-ToDoUITests/Pods-ToDo-ToDoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4432EC13EC2FBBA0ADF54102 /* Pods_ToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5118A85F96D09F79E4FFB7B8 /* Pods-ToDo-ToDoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDo-ToDoUITests.release.xcconfig"; path = "Target Support Files/Pods-ToDo-ToDoUITests/Pods-ToDo-ToDoUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -232,6 +248,14 @@
 		0C875D4E252A1AC000550F40 /* TaskDetail */ = {
 			isa = PBXGroup;
 			children = (
+				0C875DBD252A451F00550F40 /* TaskDetailBuilder.swift */,
+				0C875DC2252A452A00550F40 /* TaskDetailContracts.swift */,
+				0C875DC7252A453400550F40 /* TaskDetailPresenter.swift */,
+				0C875DCC252A453F00550F40 /* TaskDetailPresentation.swift */,
+				0C875DD1252A454A00550F40 /* TaskDetailInteractor.swift */,
+				0C875DD6252A455300550F40 /* TaskDetailRouter.swift */,
+				0C875DB6252A450E00550F40 /* TaskDetailViewController.swift */,
+				0C875DB7252A450E00550F40 /* TaskDetailViewController.xib */,
 			);
 			path = TaskDetail;
 			sourceTree = "<group>";
@@ -397,6 +421,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C875DB9252A450E00550F40 /* TaskDetailViewController.xib in Resources */,
 				0C875D9F252A319400550F40 /* TaskListTableViewCell.xib in Resources */,
 				0C5CDBD0252A110500748F2B /* LaunchScreen.storyboard in Resources */,
 				0C875D19252A129200550F40 /* TaskListViewController.xib in Resources */,
@@ -528,24 +553,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C875DBE252A451F00550F40 /* TaskDetailBuilder.swift in Sources */,
 				0C875D24252A131900550F40 /* BasePresenterProtocol.swift in Sources */,
 				0C875D45252A13A800550F40 /* TaskListInteractor.swift in Sources */,
 				0C875D9E252A319400550F40 /* TaskListTableViewCell.swift in Sources */,
 				0C875D7E252A232900550F40 /* LocalNotificationManager.swift in Sources */,
 				0C875D69252A1E1600550F40 /* UIViewController+.swift in Sources */,
 				0C875D29252A134300550F40 /* BaseRouterProtocol.swift in Sources */,
+				0C875DB8252A450E00550F40 /* TaskDetailViewController.swift in Sources */,
 				0C875DB2252A383D00550F40 /* Reusable.swift in Sources */,
 				0C875D3B252A139200550F40 /* TaskListPresenter.swift in Sources */,
 				0C875D36252A138800550F40 /* TaskListContracts.swift in Sources */,
+				0C875DC8252A453500550F40 /* TaskDetailPresenter.swift in Sources */,
 				0C875D40252A139C00550F40 /* TaskListPresentation.swift in Sources */,
 				0C875D5D252A1B9900550F40 /* TaskModel.swift in Sources */,
 				0C875D50252A1AD000550F40 /* TaskService.swift in Sources */,
 				0C875D8E252A30AD00550F40 /* NSObject+.swift in Sources */,
 				0C5CDBC4252A110300748F2B /* AppDelegate.swift in Sources */,
+				0C875DCD252A453F00550F40 /* TaskDetailPresentation.swift in Sources */,
+				0C875DD2252A454A00550F40 /* TaskDetailInteractor.swift in Sources */,
 				0C875DAD252A380100550F40 /* UITableView+.swift in Sources */,
 				0C875DA7252A376E00550F40 /* Collection+.swift in Sources */,
 				0C875D4A252A13B200550F40 /* TaskListRouter.swift in Sources */,
+				0C875DC3252A452A00550F40 /* TaskDetailContracts.swift in Sources */,
 				0C875D1F252A12DC00550F40 /* BaseViewController.swift in Sources */,
+				0C875DD7252A455300550F40 /* TaskDetailRouter.swift in Sources */,
 				0C875D2E252A137A00550F40 /* TaskListBuilder.swift in Sources */,
 				0C5CDBC6252A110300748F2B /* SceneDelegate.swift in Sources */,
 				0C875D18252A129200550F40 /* TaskListViewController.swift in Sources */,

@@ -17,9 +17,11 @@ class TaskListRouter: TaskListRouterProtocol {
     func navigate(to route: TaskListRoute) {
         switch route {
         case .addTask:
-            break
+            self.view.present(TaskDetailBuilder.make(),
+                              animated: true)
         case .edit(let task):
-            break
+            self.view.present(TaskDetailBuilder.make(task),
+                              animated: true)
         }
     }
 }
