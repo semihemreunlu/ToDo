@@ -8,9 +8,18 @@
 import Foundation
 
 struct TaskListPresentation: Equatable {
-    let note: String
+    var title: String
+    var note: String
+    var dueDate: Date?
+    var isCompleted = false
     
-    public init(note: String) {
+    public init(title: String,
+                note: String,
+                dueDate: Date? = nil,
+                isCompleted: Bool) {
+        self.title = title
         self.note = note
+        self.dueDate = dueDate
+        self.isCompleted = isCompleted
     }
 }

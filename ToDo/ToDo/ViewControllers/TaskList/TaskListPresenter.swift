@@ -24,6 +24,22 @@ final class TaskListPresenter: BasePresenterProtocol, TaskListPresenterProtocol 
     func load() {
         interactor?.load()
     }
+    
+    func selectTask(at index: Int) {
+        interactor?.selectTask(at: index)
+    }
+    
+    func deleteTask(at index: Int) {
+        interactor?.deleteTask(at: index)
+    }
+    
+    func completeTask(at index: Int) {
+        interactor?.completeTask(at: index)
+    }
+    
+    func addTask() {
+        router?.navigate(to: .addTask)
+    }
 }
 
 extension TaskListPresenter: TaskListInteractorDelegate {
@@ -31,6 +47,17 @@ extension TaskListPresenter: TaskListInteractorDelegate {
         switch output {
         case .setLoading(let isLoading):
             view?.handleOutput(.setLoading(isLoading))
+        case .setTaskList(let tasks):
+            var taskPresentationArray: [TaskListPresentation] = []
+            
+            for task in tasks ?? [] {
+                let taskPresentation = TaskListPresentation(title: task.title,
+                                                            note: task.note,
+                                                            dueDate: task.dueDate,
+                                                            isCompleted: task.isCompleted)
+                taskPresentationArray.append(taskPresentation)
+            }
+            view?.handleOutput(.setTasks(taskPresentationArray))
         }
     }
 }

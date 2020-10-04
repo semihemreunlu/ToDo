@@ -40,15 +40,15 @@ class TaskService: TaskServiceProtocol {
                 
                 if let dueDate = task.dueDate {
                     if isUpdate ?? false {
-                        NotificationManager.instance.updateNotification(title: task.title,
-                                                                        note: task.note,
-                                                                        date: dueDate,
-                                                                        id: task.id)
+                        LocalNotificationManager.instance.updateNotification(title: task.title,
+                                                                             note: task.note,
+                                                                             date: dueDate,
+                                                                             id: task.id)
                     } else {
-                        NotificationManager.instance.createNotification(title: task.title,
-                                                                        note: task.note,
-                                                                        date: dueDate,
-                                                                        id: task.id)
+                        LocalNotificationManager.instance.createNotification(title: task.title,
+                                                                             note: task.note,
+                                                                             date: dueDate,
+                                                                             id: task.id)
                     }
                 }
             }

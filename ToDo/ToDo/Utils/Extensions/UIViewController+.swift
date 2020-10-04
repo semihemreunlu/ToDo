@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 extension UIViewController {
     private static func instanceFromNib<T: UIViewController>(name: String? = nil) -> T {
@@ -14,5 +15,17 @@ extension UIViewController {
 
     static func instantiate(name: String? = nil) -> Self {
         return instanceFromNib(name: name)
+    }
+    
+    func showHud() {
+        ProgressHUD.animationType = .circleSpinFade
+        ProgressHUD.colorAnimation = .orange
+        ProgressHUD.show()
+    }
+    
+    func hideHud(_ delay: Double? = nil) {
+        self.delayOperation(delay ?? 0) {
+            ProgressHUD.dismiss()
+        }
     }
 }

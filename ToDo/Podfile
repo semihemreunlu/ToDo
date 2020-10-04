@@ -8,6 +8,7 @@ target 'ToDo' do
 
   # Pods for ToDo
   pod 'RealmSwift'
+  pod 'ProgressHUD'
 
   target 'ToDoTests' do
     inherit! :search_paths

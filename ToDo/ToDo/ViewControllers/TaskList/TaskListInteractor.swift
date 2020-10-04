@@ -18,6 +18,18 @@ final class TaskListInteractor: TaskListInteractorProtocol {
     }
     
     func load() {
-     
+        self.delegate?.handleOutput(.setLoading(true))
+        self.tasks = self.service.getTaskList()
+        self.delegate?.handleOutput(.setTaskList(tasks))
+        self.delegate?.handleOutput(.setLoading(false))
+    }
+    
+    func selectTask(at index: Int) {
+    }
+    
+    func deleteTask(at index: Int) {
+    }
+    
+    func completeTask(at index: Int) {
     }
 }

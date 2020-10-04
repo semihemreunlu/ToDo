@@ -15,5 +15,9 @@ class TaskListRouter: TaskListRouterProtocol {
     }
     
     func navigate(to route: TaskListRoute) {
+        switch route {
+        case .addTask:
+            break
+        }
     }
 }

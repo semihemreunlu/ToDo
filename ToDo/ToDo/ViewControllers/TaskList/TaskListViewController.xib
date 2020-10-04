@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TaskListViewController" customModule="ToDo" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="rOe-CP-DrJ" id="7eK-qO-uwb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,16 +19,23 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello world" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elh-rF-tnf">
-                    <rect key="frame" x="31" y="68" width="86" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rOe-CP-DrJ">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="i5s-Sx-p73"/>
+                        <outlet property="delegate" destination="-1" id="sSm-Cr-ZWA"/>
+                    </connections>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rOe-CP-DrJ" secondAttribute="bottom" id="QjZ-vS-Ett"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rOe-CP-DrJ" secondAttribute="trailing" id="USh-Ob-mVt"/>
+                <constraint firstItem="rOe-CP-DrJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="doq-C4-h3t"/>
+                <constraint firstItem="rOe-CP-DrJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ik7-17-84i"/>
+            </constraints>
             <point key="canvasLocation" x="122" y="109"/>
         </view>
     </objects>

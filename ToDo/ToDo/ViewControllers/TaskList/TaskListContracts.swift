@@ -17,10 +17,14 @@ protocol TaskListInteractorProtocol: AnyObject {
     var delegate: TaskListInteractorDelegate? { get set }
     
     func load()
+    func selectTask(at index: Int)
+    func deleteTask(at index: Int)
+    func completeTask(at index: Int)
 }
 
 enum TaskListInteractorOutput {
     case setLoading(_ isLoading: Bool)
+    case setTaskList(_ taskList: [TaskModel]?)
 }
 
 protocol TaskListInteractorDelegate: AnyObject {
@@ -30,10 +34,15 @@ protocol TaskListInteractorDelegate: AnyObject {
 // MARK: - Presenter
 protocol TaskListPresenterProtocol: AnyObject {
     func load()
+    func selectTask(at index: Int)
+    func deleteTask(at index: Int)
+    func completeTask(at index: Int)
+    func addTask()
 }
 
 enum TaskListPresenterOutput: Equatable {
     case setLoading(_ isLoading: Bool)
+    case setTasks(_ tasks: [TaskListPresentation])
     
     static func == (lhs: TaskListPresenterOutput, rhs: TaskListPresenterOutput) -> Bool {
         return true
@@ -42,7 +51,7 @@ enum TaskListPresenterOutput: Equatable {
 
 // MARK: - Router
 enum TaskListRoute: Equatable {
-    
+    case addTask
 }
 
 protocol TaskListRouterProtocol: AnyObject {
