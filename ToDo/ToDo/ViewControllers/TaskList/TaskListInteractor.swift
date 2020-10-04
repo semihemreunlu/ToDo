@@ -51,7 +51,11 @@ final class TaskListInteractor: TaskListInteractorProtocol {
         guard let task = tasks?[safe:index] else {
             return
         }
-        service.completeTask(task: task)
+        if task.isCompleted {
+            service.undoneTask(task: task)
+        } else {
+            service.completeTask(task: task)
+        }
     }
     
     func taskListWillDissapear() {

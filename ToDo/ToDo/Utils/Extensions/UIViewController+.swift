@@ -30,8 +30,6 @@ extension UIViewController {
     }
     
     func showSucceed(_ text: String) {
-        self.delayOperation(1) {
-            ProgressHUD.showSucceed(text, interaction: true)
-        }
+        ProgressHUD.showSucceed(text, interaction: true)
     }
 }

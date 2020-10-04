@@ -16,6 +16,7 @@ class TaskListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.tintColor = .black
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

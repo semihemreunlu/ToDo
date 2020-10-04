@@ -74,10 +74,6 @@ extension TaskListViewController: UITableViewDelegate {
         presenter?.selectTask(at: indexPath.row)
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-    
     func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
         guard let row = indexPath?.row else {
             return
@@ -94,9 +90,15 @@ extension TaskListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: TaskListTableViewCell.self)
         let task = tasks[safe: indexPath.row]
-        cell.titleLabel.text = task?.title ?? ""
-        cell.noteLabel.text = task?.note ?? ""
-        cell.dateLabel.text = task?.dueDate?.description ?? ""
+        let strikethroughStyle: NSUnderlineStyle = task?.isCompleted ?? false ? .single : .patternDot
+        let stringAttributes = [NSAttributedString.Key.strikethroughStyle : strikethroughStyle.rawValue]
+        
+        cell.titleLabel.attributedText = NSAttributedString(string: task?.title ?? "",
+                                                            attributes: stringAttributes)
+        cell.noteLabel.attributedText = NSAttributedString(string: task?.note ?? "",
+                                                            attributes: stringAttributes)
+        cell.dateLabel.attributedText = NSAttributedString(string: task?.dueDate?.toString() ?? "",
+                                                            attributes: stringAttributes)
         return cell
     }
 }

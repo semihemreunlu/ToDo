@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C02F8D1252A6CB400A3E2EE /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C02F8D0252A6CB400A3E2EE /* Date+.swift */; };
 		0C5CDBC4252A110300748F2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CDBC3252A110300748F2B /* AppDelegate.swift */; };
 		0C5CDBC6252A110300748F2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CDBC5252A110300748F2B /* SceneDelegate.swift */; };
 		0C5CDBCD252A110500748F2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C5CDBCC252A110500748F2B /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		06086997D736B462F4563E5C /* Pods_ToDo_ToDoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDo_ToDoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C02F8D0252A6CB400A3E2EE /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		0C5CDBC0252A110300748F2B /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C5CDBC3252A110300748F2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C5CDBC5252A110300748F2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				0C875D8D252A30AD00550F40 /* NSObject+.swift */,
 				0C875DA6252A376E00550F40 /* Collection+.swift */,
 				0C875DAC252A380100550F40 /* UITableView+.swift */,
+				0C02F8D0252A6CB400A3E2EE /* Date+.swift */,
 				0C875DB1252A383D00550F40 /* Reusable.swift */,
 			);
 			path = Extensions;
@@ -574,6 +577,7 @@
 				0C875DD2252A454A00550F40 /* TaskDetailInteractor.swift in Sources */,
 				0C875DAD252A380100550F40 /* UITableView+.swift in Sources */,
 				0C875DA7252A376E00550F40 /* Collection+.swift in Sources */,
+				0C02F8D1252A6CB400A3E2EE /* Date+.swift in Sources */,
 				0C875D4A252A13B200550F40 /* TaskListRouter.swift in Sources */,
 				0C875DC3252A452A00550F40 /* TaskDetailContracts.swift in Sources */,
 				0C875D1F252A12DC00550F40 /* BaseViewController.swift in Sources */,

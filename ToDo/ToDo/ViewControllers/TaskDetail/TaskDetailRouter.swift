@@ -17,7 +17,9 @@ class TaskDetailRouter: TaskDetailRouterProtocol {
     func navigate(to route: TaskDetailRoute) {
         switch route {
         case .returnToTaskList:
-            break
+            self.view.delayOperation(1) {
+                self.view.dismiss(animated: true, completion: nil)
+            }
         }
     }
 }

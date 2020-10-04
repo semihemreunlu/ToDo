@@ -47,6 +47,7 @@ extension TaskDetailPresenter: TaskDetailInteractorDelegate {
             view?.handleOutput(.hideDeleteButton)
         case .showSucceed(let text):
             view?.handleOutput(.showSucceed(text))
+            router?.navigate(to: .returnToTaskList)
         }
     }
 }
