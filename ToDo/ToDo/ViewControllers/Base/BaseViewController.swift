@@ -19,5 +19,6 @@ class BaseViewController<Presenter: BasePresenterProtocol>: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.tintColor = .black
     }
 }

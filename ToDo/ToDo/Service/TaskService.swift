@@ -17,9 +17,14 @@ protocol TaskServiceProtocol {
     func completeTask(task: TaskModel)
     func undoneTask(task: TaskModel)
     func deleteTask(task: TaskModel)
+    func observe(_ block: @escaping NotificationBlock) -> NotificationToken
 }
 
 class TaskService: TaskServiceProtocol {
+    func observe(_ block: @escaping NotificationBlock) -> NotificationToken {
+        realm.observe(block)
+    }
+    
     private var realm = try! Realm()
     
     //MARK: Tasks
@@ -153,5 +158,9 @@ class TaskServiceMock: TaskServiceProtocol {
     
     func deleteTask(task: TaskModel) {
         
+    }
+    
+    func observe(_ block: @escaping NotificationBlock) -> NotificationToken {
+        return NotificationToken()
     }
 }

@@ -20,11 +20,14 @@ protocol TaskListInteractorProtocol: AnyObject {
     func selectTask(at index: Int)
     func deleteTask(at index: Int)
     func completeTask(at index: Int)
+    func taskListWillDissapear()
 }
 
 enum TaskListInteractorOutput {
     case setLoading(_ isLoading: Bool)
     case setTaskList(_ taskList: [TaskModel]?)
+    case setEmptyAlert(_ isEmpty: Bool)
+    case edit(_ task: TaskModel)
 }
 
 protocol TaskListInteractorDelegate: AnyObject {
@@ -38,11 +41,13 @@ protocol TaskListPresenterProtocol: AnyObject {
     func deleteTask(at index: Int)
     func completeTask(at index: Int)
     func addTask()
+    func taskListWillDissapear()
 }
 
 enum TaskListPresenterOutput: Equatable {
     case setLoading(_ isLoading: Bool)
     case setTasks(_ tasks: [TaskListPresentation])
+    case setEmptyAlert(_ isEmpty: Bool)
     
     static func == (lhs: TaskListPresenterOutput, rhs: TaskListPresenterOutput) -> Bool {
         return true
@@ -52,6 +57,7 @@ enum TaskListPresenterOutput: Equatable {
 // MARK: - Router
 enum TaskListRoute: Equatable {
     case addTask
+    case edit(_ task: TaskModel)
 }
 
 protocol TaskListRouterProtocol: AnyObject {

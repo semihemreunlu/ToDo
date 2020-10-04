@@ -18,6 +18,8 @@ class TaskListRouter: TaskListRouterProtocol {
         switch route {
         case .addTask:
             break
+        case .edit(let task):
+            break
         }
     }
 }

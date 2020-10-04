@@ -11,13 +11,44 @@ class TaskListViewController: BaseViewController<TaskListPresenter> {
 
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
+        setTableView()
+        setNavigationBar()
         presenter?.load()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        presenter?.taskListWillDissapear()
+    }
+    
     var tasks: [TaskListPresentation] = []
+    
+    func setTableView() {
+        tableView.register(TaskListTableViewCell.self)
+        tableView.tableFooterView = UIView()
+    }
+    
+    func setNavigationBar() {
+        let barButton = UIButton(type: .custom)
+        barButton.addTarget(self, action: #selector(addTask), for: .touchUpInside)
+        barButton.setImage(UIImage(named: "add"), for: UIControl.State())
+        
+        let barButtonItem = UIBarButtonItem(customView: barButton)
+        self.navigationItem.leftBarButtonItem = barButtonItem
+        
+        let backButton = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
+        self.title = "ToDo"
+    }
+    
+    @objc func addTask() {
+        presenter?.addTask()
+    }
 }
 
 extension TaskListViewController: TaskListViewProtocol {
@@ -28,6 +59,8 @@ extension TaskListViewController: TaskListViewProtocol {
         case .setTasks(let tasks):
             self.tasks = tasks
             self.tableView.reloadData()
+        case .setEmptyAlert(let isEmpty):
+            self.tableView.isHidden = isEmpty
         }
     }
 }
@@ -59,6 +92,11 @@ extension TaskListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(for: indexPath, cellType: TaskListTableViewCell.self)
+        let task = tasks[safe: indexPath.row]
+        cell.titleLabel.text = task?.title ?? ""
+        cell.noteLabel.text = task?.note ?? ""
+        cell.dateLabel.text = task?.dueDate?.description ?? ""
+        return cell
     }
 }

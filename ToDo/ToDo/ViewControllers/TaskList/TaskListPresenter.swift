@@ -40,6 +40,10 @@ final class TaskListPresenter: BasePresenterProtocol, TaskListPresenterProtocol 
     func addTask() {
         router?.navigate(to: .addTask)
     }
+    
+    func taskListWillDissapear() {
+        interactor?.taskListWillDissapear()
+    }
 }
 
 extension TaskListPresenter: TaskListInteractorDelegate {
@@ -58,6 +62,10 @@ extension TaskListPresenter: TaskListInteractorDelegate {
                 taskPresentationArray.append(taskPresentation)
             }
             view?.handleOutput(.setTasks(taskPresentationArray))
+        case .setEmptyAlert(let isEmpty):
+            view?.handleOutput(.setEmptyAlert(isEmpty))
+        case .edit(let task):
+            router?.navigate(to: .edit(task))
         }
     }
 }
