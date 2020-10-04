@@ -8,26 +8,41 @@
 import XCTest
 @testable import ToDo
 
+private var view: TaskListViewMock!
+private var interactor: TaskListInteractor!
+private var presenter: TaskListPresenter!
+private var router: TaskListRouterMock!
+private var service: TaskServiceMock!
+
 class ToDoTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        override class func setUp() {
+            super.setUp()
+        
+            service = TaskServiceMock()
+            view = TaskListViewMock()
+            interactor = TaskListInteractor(service: service)
+            router = TaskListRouterMock()
+            presenter = TaskListPresenter(interactor: interactor,
+                                          view: view,
+                                          router: router)
+            view.presenter = presenter
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testLoadTaskList(){
+        // Given:
+        let taskList = try? ResourceLoader.loadTaskList(from: "TaskListMock")
+        service.taskList = taskList
+        
+        // When:
+        view.viewDidLoad()
+        
+        // Then:
+        XCTAssertEqual(view.outputs.count, 4)
+        
+        XCTAssertEqual(view.outputs[0], .setLoading(true))
+        XCTAssertEqual(view.outputs[1], .setTasks([]))
+        XCTAssertEqual(view.outputs[2], .setLoading(false))
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
+
+

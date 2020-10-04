@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0C02F8D1252A6CB400A3E2EE /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C02F8D0252A6CB400A3E2EE /* Date+.swift */; };
+		0C02F8D6252A757600A3E2EE /* TaskListRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C02F8D5252A757600A3E2EE /* TaskListRouterMock.swift */; };
+		0C02F8DB252A758900A3E2EE /* TaskListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C02F8DA252A758900A3E2EE /* TaskListViewMock.swift */; };
+		0C02F8E0252A76EC00A3E2EE /* ResourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C02F8DF252A76EC00A3E2EE /* ResourceLoader.swift */; };
+		0C02F8E9252A782100A3E2EE /* TaskListMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C02F8E8252A782100A3E2EE /* TaskListMock.json */; };
 		0C5CDBC4252A110300748F2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CDBC3252A110300748F2B /* AppDelegate.swift */; };
 		0C5CDBC6252A110300748F2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CDBC5252A110300748F2B /* SceneDelegate.swift */; };
 		0C5CDBCD252A110500748F2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C5CDBCC252A110500748F2B /* Assets.xcassets */; };
@@ -68,6 +72,10 @@
 /* Begin PBXFileReference section */
 		06086997D736B462F4563E5C /* Pods_ToDo_ToDoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDo_ToDoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C02F8D0252A6CB400A3E2EE /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		0C02F8D5252A757600A3E2EE /* TaskListRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListRouterMock.swift; sourceTree = "<group>"; };
+		0C02F8DA252A758900A3E2EE /* TaskListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewMock.swift; sourceTree = "<group>"; };
+		0C02F8DF252A76EC00A3E2EE /* ResourceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLoader.swift; sourceTree = "<group>"; };
+		0C02F8E8252A782100A3E2EE /* TaskListMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TaskListMock.json; sourceTree = "<group>"; };
 		0C5CDBC0252A110300748F2B /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C5CDBC3252A110300748F2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C5CDBC5252A110300748F2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +155,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C02F8E4252A77C400A3E2EE /* Config */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		0C5CDBB7252A110300748F2B = {
 			isa = PBXGroup;
 			children = (
@@ -172,14 +187,15 @@
 		0C5CDBC2252A110300748F2B /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
-				0C5CDBC3252A110300748F2B /* AppDelegate.swift */,
-				0C5CDBC5252A110300748F2B /* SceneDelegate.swift */,
-				0C5CDBCC252A110500748F2B /* Assets.xcassets */,
-				0C5CDBCE252A110500748F2B /* LaunchScreen.storyboard */,
-				0C5CDBD1252A110500748F2B /* Info.plist */,
+				0C02F8E4252A77C400A3E2EE /* Config */,
 				0C875D13252A125400550F40 /* ViewControllers */,
 				0C875D15252A126F00550F40 /* Service */,
 				0C875D79252A231900550F40 /* Utils */,
+				0C5CDBC3252A110300748F2B /* AppDelegate.swift */,
+				0C5CDBC5252A110300748F2B /* SceneDelegate.swift */,
+				0C5CDBD1252A110500748F2B /* Info.plist */,
+				0C5CDBCC252A110500748F2B /* Assets.xcassets */,
+				0C5CDBCE252A110500748F2B /* LaunchScreen.storyboard */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -188,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				0C5CDBDA252A110500748F2B /* ToDoTests.swift */,
+				0C02F8D5252A757600A3E2EE /* TaskListRouterMock.swift */,
+				0C02F8DA252A758900A3E2EE /* TaskListViewMock.swift */,
 				0C5CDBDC252A110500748F2B /* Info.plist */,
 			);
 			path = ToDoTests;
@@ -233,6 +251,7 @@
 			children = (
 				0C875D4F252A1AD000550F40 /* TaskService.swift */,
 				0C875D5C252A1B9900550F40 /* TaskModel.swift */,
+				0C02F8E8252A782100A3E2EE /* TaskListMock.json */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -280,6 +299,7 @@
 			children = (
 				0C875D67252A1DFF00550F40 /* Extensions */,
 				0C875D7D252A232900550F40 /* LocalNotificationManager.swift */,
+				0C02F8DF252A76EC00A3E2EE /* ResourceLoader.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -427,6 +447,7 @@
 				0C875DB9252A450E00550F40 /* TaskDetailViewController.xib in Resources */,
 				0C875D9F252A319400550F40 /* TaskListTableViewCell.xib in Resources */,
 				0C5CDBD0252A110500748F2B /* LaunchScreen.storyboard in Resources */,
+				0C02F8E9252A782100A3E2EE /* TaskListMock.json in Resources */,
 				0C875D19252A129200550F40 /* TaskListViewController.xib in Resources */,
 				0C5CDBCD252A110500748F2B /* Assets.xcassets in Resources */,
 			);
@@ -558,6 +579,7 @@
 			files = (
 				0C875DBE252A451F00550F40 /* TaskDetailBuilder.swift in Sources */,
 				0C875D24252A131900550F40 /* BasePresenterProtocol.swift in Sources */,
+				0C02F8E0252A76EC00A3E2EE /* ResourceLoader.swift in Sources */,
 				0C875D45252A13A800550F40 /* TaskListInteractor.swift in Sources */,
 				0C875D9E252A319400550F40 /* TaskListTableViewCell.swift in Sources */,
 				0C875D7E252A232900550F40 /* LocalNotificationManager.swift in Sources */,
@@ -593,6 +615,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C5CDBDB252A110500748F2B /* ToDoTests.swift in Sources */,
+				0C02F8D6252A757600A3E2EE /* TaskListRouterMock.swift in Sources */,
+				0C02F8DB252A758900A3E2EE /* TaskListViewMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 
 import RealmSwift
 
-class TaskModel: Object {
+class TaskModel: Object, Decodable {
     @objc dynamic var title: String = ""
     @objc dynamic var note: String = ""
     @objc dynamic var id = NSUUID().uuidString
