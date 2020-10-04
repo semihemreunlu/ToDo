@@ -28,4 +28,16 @@ class TaskModel: Object {
         self.note = note
         self.dueDate = dueDate
     }
+    
+    convenience init(title: String?,
+                     note: String,
+                     dueDate: Date? = nil,
+                     id: String) {
+        self.init()
+        
+        self.title = title ?? "Note"
+        self.note = note
+        self.dueDate = dueDate
+        self.id = id
+    }
 }

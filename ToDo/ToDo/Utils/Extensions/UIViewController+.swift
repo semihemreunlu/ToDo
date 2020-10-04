@@ -28,4 +28,10 @@ extension UIViewController {
             ProgressHUD.dismiss()
         }
     }
+    
+    func showSucceed(_ text: String) {
+        self.delayOperation(1) {
+            ProgressHUD.showSucceed(text, interaction: true)
+        }
+    }
 }

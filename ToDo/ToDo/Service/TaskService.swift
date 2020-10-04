@@ -10,7 +10,7 @@ import RealmSwift
 
 protocol TaskServiceProtocol {
     func getTaskList() -> [TaskModel]
-    func addTask(task: TaskModel, isUpdate: Bool?)
+    func addTask(task: TaskModel)
     func updateTask(task: TaskModel)
     func getTask(with id: String) -> TaskModel?
     func changeTaskNote(task: TaskModel, note: String)
@@ -61,6 +61,10 @@ class TaskService: TaskServiceProtocol {
         catch {
             setError(name: #function, object: task)
         }
+    }
+    
+    func addTask(task: TaskModel) {
+        self.addTask(task: task, isUpdate: false)
     }
     
     func updateTask(task: TaskModel) {
@@ -132,7 +136,7 @@ class TaskServiceMock: TaskServiceProtocol {
         return taskList ?? []
     }
     
-    func addTask(task: TaskModel, isUpdate: Bool?) {
+    func addTask(task: TaskModel) {
         
     }
     

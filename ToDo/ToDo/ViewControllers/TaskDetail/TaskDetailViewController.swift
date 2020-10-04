@@ -22,7 +22,12 @@ class TaskDetailViewController: BaseViewController<TaskDetailPresenter> {
 
         presenter?.load()
         
+        setUIElements()
+    }
+    
+    func setUIElements() {
         saveButton.layer.cornerRadius = 8
+        datePicker.minimumDate = Date(timeIntervalSinceNow: TimeInterval(60))
     }
     
     @IBAction func notificationChoiceSwitchStateChanged(_ sender: UISwitch) {
@@ -31,14 +36,37 @@ class TaskDetailViewController: BaseViewController<TaskDetailPresenter> {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
+        let dueDate = notificationChoiceSwitch.isOn ? datePicker.date : nil
+        let task = TaskDetailPresentation(title: titleTextField.text ?? "",
+                                          note: noteTextField.text ?? "",
+                                          dueDate: dueDate)
+        presenter?.save(task)
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        presenter?.deleteButtonTapped()
     }
 }
 
 extension TaskDetailViewController: TaskDetailViewProtocol {
     func handleOutput(_ output: TaskDetailPresenterOutput) {
-        
+        switch output {
+        case .setLoading(let isLoading):
+            isLoading ? self.showHud() : self.hideHud(0.5)
+        case .show(let task):
+            self.titleTextField.text = task.title
+            self.noteTextField.text = task.note
+            
+            notificationChoiceSwitch.isOn = task.dueDate != nil
+            datePicker.isHidden = task.dueDate == nil
+            
+            if let dueDate = task.dueDate {
+                datePicker.date = dueDate
+            }
+        case .hideDeleteButton:
+            self.deleteButton.isHidden = true
+        case .showSucceed(let text):
+            self.showSucceed(text)
+        }
     }
 }

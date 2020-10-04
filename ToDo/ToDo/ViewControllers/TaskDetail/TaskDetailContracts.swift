@@ -17,10 +17,15 @@ protocol TaskDetailInteractorProtocol: AnyObject {
     var delegate: TaskDetailInteractorDelegate? { get set }
     
     func load()
+    func save(_ task: TaskDetailPresentation)
+    func deleteButtonTapped()
 }
 
 enum TaskDetailInteractorOutput {
     case setLoading(_ isLoading: Bool)
+    case show(_ task: TaskModel)
+    case hideDeleteButton
+    case showSucceed(_ text: String)
 }
 
 protocol TaskDetailInteractorDelegate: AnyObject {
@@ -30,10 +35,15 @@ protocol TaskDetailInteractorDelegate: AnyObject {
 // MARK: - Presenter
 protocol TaskDetailPresenterProtocol: AnyObject {
     func load()
+    func save(_ task: TaskDetailPresentation)
+    func deleteButtonTapped()
 }
 
 enum TaskDetailPresenterOutput: Equatable {
     case setLoading(_ isLoading: Bool)
+    case show(_ task: TaskDetailPresentation)
+    case hideDeleteButton
+    case showSucceed(_ text: String)
     
     static func == (lhs: TaskDetailPresenterOutput, rhs: TaskDetailPresenterOutput) -> Bool {
         return true

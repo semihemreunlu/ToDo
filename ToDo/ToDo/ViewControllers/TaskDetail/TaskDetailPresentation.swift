@@ -11,15 +11,12 @@ struct TaskDetailPresentation: Equatable {
     var title: String
     var note: String
     var dueDate: Date?
-    var isCompleted = false
     
     public init(title: String,
                 note: String,
-                dueDate: Date? = nil,
-                isCompleted: Bool) {
+                dueDate: Date? = nil) {
         self.title = title
         self.note = note
         self.dueDate = dueDate
-        self.isCompleted = isCompleted
     }
 }

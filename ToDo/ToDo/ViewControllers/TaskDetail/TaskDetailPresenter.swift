@@ -24,6 +24,14 @@ final class TaskDetailPresenter: BasePresenterProtocol, TaskDetailPresenterProto
     func load() {
         interactor?.load()
     }
+    
+    func save(_ task: TaskDetailPresentation) {
+        interactor?.save(task)
+    }
+    
+    func deleteButtonTapped() {
+        interactor?.deleteButtonTapped()
+    }
 }
 
 extension TaskDetailPresenter: TaskDetailInteractorDelegate {
@@ -31,6 +39,14 @@ extension TaskDetailPresenter: TaskDetailInteractorDelegate {
         switch output {
         case .setLoading(let isLoading):
             view?.handleOutput(.setLoading(isLoading))
+        case .show(let task):
+            view?.handleOutput(.show(TaskDetailPresentation(title: task.title,
+                                                            note: task.note,
+                                                            dueDate: task.dueDate)))
+        case .hideDeleteButton:
+            view?.handleOutput(.hideDeleteButton)
+        case .showSucceed(let text):
+            view?.handleOutput(.showSucceed(text))
         }
     }
 }
